@@ -98,24 +98,26 @@ def check_all_messages(message):
     # print(highest_prob)
 
     if highest_prob[best_match] < 1:
-        return unknown()
+        return unknown(message)
     else:
         return best_match
 
-def unknown():
+def unknown(message_db):
     response = ['Puedes decirlo de nuevo?','No estoy seguro de lo que quieres', 'No tengo ese conocimiento aún, lo siento :c','No te he entendido','No hablo extranjero jeje'][random.randrange(5)]
+
+    with open('question_bank.txt', 'a') as file:
+        file.write(' '.join(message_db) + '\n')
+
     return response
-
-
 
 if __name__ == '__main__':
     nombreBot = 'Bot'
     nombreUsuario = 'Usuario'
     inicio = 'Bienvenido a su asistente de Artesanías Mexicanas'
     print(nombreBot + ": " + inicio)
-    opcion = input(nombreBot + ": " +'Mi nombre es ' + nombreBot + ', le gustaría decirme el suyo? ')
+    opcion = input(nombreBot + ": " +'Mi nombre es ' + nombreBot + ', le gustaría decirme el suyo? (S/N): ').lower()
 
-    if(opcion == 'S' or opcion == 's' or opcion == 'Y' or opcion == 'y'):
+    if(opcion in ["s","y"]):
         nombreUsuario = input('Escriba su nombre: ')
         print(nombreBot + ': Bienvenido ' + nombreUsuario + "!!!")
     else:
