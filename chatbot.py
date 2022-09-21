@@ -44,7 +44,7 @@ def check_all_messages(message):
     response('Siempre a la orden. Si desea terminar la conversación presione Ctrl + C', ['gracias','te lo agradezco','tenkiu','thx','salir'], single_response=True)
 
     #1. ¿Que son las artesanias?
-    response('Las artesanías mexicanas son resultado del trabajo de un artesano. Cada una es característica de cada región','Que es una artesania mexicana',['artesania','mexicana'], required_words=['artesania'])
+    response('Las artesanías mexicanas son resultado del trabajo de un artesano. Cada una es característica de cada región',['artesania','mexicana'], required_words=['artesania'])
 
     #2. ¿De que estan hechas las artesanias? 
     response('Son elaboradas, regularmente, con materiales de origen natural como la madera, el barro, las telas, las semillas, piedras y metales',['de','que','estan','hechas','compuestas','elaborar'],required_words=['hechas'])
