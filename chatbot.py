@@ -122,7 +122,6 @@ if __name__ == '__main__':
         print(nombreBot + ': Bienvenido ' + nombreUsuario + "!!!")
     else:
         print(nombreBot + ': Bien lo llamaré ' + nombreUsuario)
-
-                
+           
     while True:
         print(nombreBot + ": " + getResponse(input(nombreUsuario + ': ')))
