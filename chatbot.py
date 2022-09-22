@@ -117,6 +117,24 @@ def check_all_messages(message):
     #19. ¿Cuáles son los juguetes que se fabrican de forma artesanal?
     response('Son varios, algunos ejemplos son el trompo, la pirinola, la matraca, el balero o la divertida lotería, además de coches y camiones de madera o un sinfín de muñecas entre las que destacan las típicas de trenzas y colores vivos',['cuales','son','juguetes','artesanal'],required_words=['juguetes','fabrican'])
 
+    #20 ¿De que están hechos los sombreros de charro?
+    response('Los sombreros de charro son elaborados con piel de conejo, es necesaria una técnica de planchado precisa para lograr esa textura resistente. Posteriormente se borda a mano con uno o varios colores.',['de','que','estan','hechos','sombreros','sombreros'], single_response=True)
+
+    #21 ¿Que son las piñatas?
+    response('Una piñata  es una olla de barro o de cartón cubierta de papel maché, adornada de papel de colores y usualmente con 7 picos, que en su interior contiene frutas, dulces u otros premios, dependiendo de la celebración',['que','es','piñata','piñatas'], single_response=True)
+
+    #22 ¿Las piñatas son artesanías?
+    response('Claro, estas creaciones han sido elaboradas por artesanos desde tiempos de su abuelo o visabuelo. Su elaboración es considerada artesanal ya que los maestros piñateros se han podido adaptar a los cambios en la cultura popular y ahora se pueden encontrar piñatas con forma dibujos animados, de tendencias o incluso algunas satíricas',['piñatas','artesanias','son'], single_response=True)
+
+    #23 ¿Tu has estado en Oaxaca?
+    response('Claro que si, he visitado el centro de Oaxaca, incluso he ido al árbol del Tule. Es uno de los estados más ricos en cuanto a las artesanías se refieren, además de que la comida es exquisita.',['has','vistado','dices','oaxaca','estado','en','me'], single_response=True)
+
+    #24 ¿Que me dices de Puebla?
+    response('Claro, el centro de la ciudad de Puebla es uno de los más bonitos a lo largo de la república, además de que ahi también se puede comer muy bien, solo que cuidado si lo visitas, dicen que la gente se tropieza con ciclovias xD',['has','vistado','dices','puebla','estado','en','me'], single_response=True)
+
+    #25 ¿Que son las hamacas?
+    response('Una hamaca es una lona o red constituida por bramante o cuerda fina que se fija a dos puntos firmes. Estos por lo regular se tratan de troncos de árboles. Es utilizada para dormir o descansar',['que','es','hamaca'], single_response=True)
+
     best_match = max(highest_prob, key=highest_prob.get)
     # print(highest_prob)
 
@@ -126,16 +144,16 @@ def check_all_messages(message):
         return best_match
 
 def unknown(message_db):
-    response = ['Puedes decirlo de nuevo?','No estoy seguro de lo que quieres', 'No tengo ese conocimiento aún, lo siento :c','No te he entendido','No hablo extranjero jeje'][random.randrange(5)]
+    response = ['Puedes decirlo de nuevo?','No estoy seguro de lo que quieres', 'No tengo ese conocimiento aún, lo siento :c','No te he entendido','Solo entiendo el español','Me lo puedes repetir porfavor?'][random.randrange(6)]
 
     with open('question_bank.txt', 'a') as file:
-        file.write(' '.join(message_db) + '\n')
+        file.write('B'+' '.join(message_db) + '\n')
 
     return response
 
 
 if __name__ == '__main__':
-    nombreBot = 'George'
+    nombreBot = 'Bot'
     nombreUsuario = 'Usuario'
     inicio = 'Bienvenido a su asistente de Artesanías   Mexicanas'
     siQuiero = ["s","y","si"]
