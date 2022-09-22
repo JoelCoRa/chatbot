@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 cdcd
 cddc
+<<<<<<< HEAD
 =======
 crees que pueda viajar al pasado 
 conoces a broly el sayayin legendario 
@@ -14,3 +14,5 @@ Bcomo estas
 Bcomo estas
 Bcomo andas
 Bxd
+=======
+>>>>>>> 4376c24987c1757a8348ba66763158c4ce387fc9
