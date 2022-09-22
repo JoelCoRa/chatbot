@@ -36,13 +36,13 @@ def check_all_messages(message):
 
     # Saludos y Despedida
     # 1
-    response('Buen dia, en que puedo apoyarlo el dia de hoy?', ['hola','alo','saludos','wenas','buen','dia'], single_response=True)
+    response(saludo(), ['hola','alo','saludos','wenas','buen','dia'], single_response=True)
 
     # 2
     response('Mi nombre es ' + nombreBot + ' y soy su asistente virtual dedicado a las artesanías, más concretamente en las mexicanas. Puede hacerme cualquier pregunta sobre ellas.',['quien','eres','haces'], single_response=True)
 
     #3
-    response('Me encuentro bien y usted?', ['como','estas','te','va','vas','encuentras','sientes'], required_words=['como','sientes'])
+    response('Me encuentro bien y usted?', ['como','estas','te','va','vas','encuentras','sientes'], single_response=True)
 
     #4
     response('Me alegro que se encuentre bien',['bien','me','gracias','siento'],required_words=['bien'])
@@ -67,7 +67,7 @@ def check_all_messages(message):
     response('Son elaboradas, regularmente, con materiales de origen natural como la madera, el barro, las telas, las semillas, piedras y metales',['de','que','estan','hechas','compuestas','elaborar'],required_words=['hechas'])
 
     #3. ¿Que es un artesano?
-    response('Estas personas crean lo que son las artesnias, realizan su trabajo a mano o con distintos instrumentos.',['que','es','hace'],required_words=['artesano'])
+    response('Estas personas crean lo que son las artesanias, realizan su trabajo a mano o con distintos instrumentos.',['que','es','hace'],required_words=['artesano'])
 
     #4. ¿Me puedes dar un ejemplo de artesania?  
     response('Claro, algunos ejemplos de artesanias pueden ser los sarapes, talaberas, alegrías, rebozos, platería, juguetes entre otros',['ejemplo','artesania'],required_words=['ejemplo'])
@@ -124,7 +124,7 @@ def check_all_messages(message):
     response('Una piñata  es una olla de barro o de cartón cubierta de papel maché, adornada de papel de colores y usualmente con 7 picos, que en su interior contiene frutas, dulces u otros premios, dependiendo de la celebración',['que','es','piñata','piñatas'], single_response=True)
 
     #22 ¿Las piñatas son artesanías?
-    response('Claro, estas creaciones han sido elaboradas por artesanos desde tiempos de su abuelo o visabuelo. Su elaboración es considerada artesanal ya que los maestros piñateros se han podido adaptar a los cambios en la cultura popular y ahora se pueden encontrar piñatas con forma dibujos animados, de tendencias o incluso algunas satíricas',['piñatas','artesanias','son'], single_response=True)
+    response('Claro, estas creaciones han sido elaboradas por artesanos desde tiempos de su abuelo o visabuelo. Su elaboración es considerada artesanal ya que los maestros piñateros se han podido adaptar a los cambios en la cultura popular y ahora se pueden encontrar piñatas con forma dibujos animados, de tendencias o incluso algunas satíricas',['piñatas','son'], single_response=True)
 
     #23 ¿Tu has estado en Oaxaca?
     response('Claro que si, he visitado el centro de Oaxaca, incluso he ido al árbol del Tule. Es uno de los estados más ricos en cuanto a las artesanías se refieren, además de que la comida es exquisita.',['has','vistado','dices','oaxaca','estado','en','me'], single_response=True)
@@ -133,7 +133,7 @@ def check_all_messages(message):
     response('Claro, el centro de la ciudad de Puebla es uno de los más bonitos a lo largo de la república, además de que ahi también se puede comer muy bien, solo que cuidado si lo visitas, dicen que la gente se tropieza con ciclovias xD',['has','vistado','dices','puebla','estado','en','me'], single_response=True)
 
     #25 ¿Que son las hamacas?
-    response('Una hamaca es una lona o red constituida por bramante o cuerda fina que se fija a dos puntos firmes. Estos por lo regular se tratan de troncos de árboles. Es utilizada para dormir o descansar',['que','es','hamaca'], single_response=True)
+    response('Una hamaca es una lona o red constituida por bramante o cuerda fina que se fija a dos puntos firmes. Estos por lo regular se tratan de troncos de árboles. Es utilizada para dormir o descansar',['que','es'], required_words=['hamaca'])
 
     best_match = max(highest_prob, key=highest_prob.get)
     # print(highest_prob)
@@ -149,6 +149,10 @@ def unknown(message_db):
     with open('question_bank.txt', 'a') as file:
         file.write('B'+' '.join(message_db) + '\n')
 
+    return response
+
+def saludo():
+    response = ['Hola','Buen dia','En que puedo ayudarlo','Bienvenido','Que bonito está el clima','¿Que hay de nuevo?'][random.randrange(5)]
     return response
 
 
