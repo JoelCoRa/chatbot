@@ -44,7 +44,7 @@ def revisarMsjs(mensaje):
 
     # Saludos y Despedida
     # 1
-    respuesta(saludo(), ['hola','alo','saludos','wenas','buen','dia'], respuestaSimple=True)
+    respuesta(saludo(), ['hola','alo','saludos','wenas','buen','dia','ola'], respuestaSimple=True)
 
     # 2
     respuesta('Mi nombre es ' + nombreBot + ' y soy su asistente virtual dedicado a las artesanías, más concretamente en las mexicanas. Puede hacerme cualquier pregunta sobre ellas.',['quien','eres','haces'], respuestaSimple=True)
