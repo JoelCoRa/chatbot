@@ -1,2 +1,2 @@
 # chatbot
-Chatbot de IA
+Chatbot de IA implementing an ontology
